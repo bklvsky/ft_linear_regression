@@ -11,8 +11,8 @@ def get_parameters() -> Tuple[float, float]:
     try:
         with open("regression_parameters.pkl", "rb") as f:
             weight, intercept = pickle.load(f)
-            print("parameters from pickle:")
-            print(f"weight: {weight}, intercept: {intercept}")
+            # print("parameters from pickle:")
+            # print(f"weight: {weight}, intercept: {intercept}")
             return weight, intercept
     except OSError:
         return 0., 0.

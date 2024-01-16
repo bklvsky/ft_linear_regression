@@ -6,17 +6,8 @@
 
 import pickle
 import sys
-from linear_regression import LinearRegression
-
-# from linear_regression import model
-
-
-# def get_parameters() -> Tuple[float, float]:
-#     try:
-#         with open("regression_parameters.pkl", "rb") as f:
-#             return pickle.load(f)
-#     except FileNotFoundError:
-#         return 0, 0
+import utils
+import utils_math
 
 
 def user_input_error_exit(in_str: str, err: str = ""):
@@ -32,10 +23,9 @@ def main():
             user_input_error_exit(in_str, "Can't be less than 0.")
     except ValueError:
         user_input_error_exit(in_str)
-    model = LinearRegression()
-    print(
-        f"Estimated price for the mileage of {in_value} km = {model.predict(in_value)}"
-    )
+    weight, intercept = utils.get_parameters()
+    prediction = utils_math.estimate(in_value, weight=weight, intercept=intercept)
+    print(f"Estimated price for the mileage of {in_value} km = {prediction:.7}")
 
 
 if __name__ == "__main__":
