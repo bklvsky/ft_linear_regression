@@ -24,6 +24,9 @@ def get_parameters() -> Tuple[float, float]:
 
 
 def save_parameters(weight, intercept):
+    """
+    Saves model parameters to a file "regression_parameters.pkl" for further reuse.
+    """
     try:
         with open("regression_parameters.pkl", "wb") as f:
             pickle.dump((weight, intercept), f)
@@ -74,6 +77,3 @@ def get_database(filename, input_name, output_name) -> Tuple[List[float], List[f
         print(f"{filename} can't be read. Error: {e}", file=sys.stderr)
         exit(1)
 
-
-if __name__ == "__main__":
-    get_database()

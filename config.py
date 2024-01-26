@@ -1,3 +1,4 @@
 DB_NAME = "data.csv"
 INPUT_PARAMETER = "km"
 OUTPUT_PARAMETER = "price"
+MAX_X = 395000

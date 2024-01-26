@@ -1,10 +1,8 @@
-# %%
 from linear_regression import LinearRegression
 import config
 import sys
 
 
-# %%
 def main():
     args = ["-d", "--plot-debug"]
     debug = 0
@@ -26,6 +24,5 @@ def main():
     return
 
 
-# %%
 if __name__ == "__main__":
     main()

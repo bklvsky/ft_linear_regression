@@ -1,4 +1,3 @@
-# %%
 import utils
 import utils_math
 import numpy as np
@@ -69,7 +68,6 @@ def evaluate_model(plot_result=0, plot_data=0):
         plot(estimatedPrice, input_data, output_data, plot_result)
 
 
-# %%
 def main():
     args = ["-r", "--plot-result", "-d", "--plot-data"]
     plot_result, plot_data = 0, 0

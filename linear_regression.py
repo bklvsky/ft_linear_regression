@@ -1,4 +1,3 @@
-# %%
 import numpy as np
 import utils
 import matplotlib.pyplot as plt
@@ -6,7 +5,6 @@ import utils_math
 import config
 
 
-# %%
 class LinearRegression:
     def __init__(self, rate=0.005, num_iters=4000, debug=0):
         self.in_data = np.zeros(1)
@@ -48,34 +46,6 @@ class LinearRegression:
             )
         return predictions
 
-        # def precision(self) -> float:
-        #     """
-        #     Implements R-Squared Score metric to get precision of predictions in percentage.
-
-        #     Formula:
-        #     R2 = 1 - RSS / TSS, where:
-        #     RSS - sum of squares of residuals
-        #     TSS - total sum of squares
-
-        #     RSS = sum(predicted_value - real_value)^2
-        #     TSS = sum(real_value - mean)^2
-        #     """
-
-        #     # R^2 = 1 - RSS / TSS
-        #     # RSS = sum of squares of residuals
-        #     num = self.out_data.shape[0]
-        #     mean = np.sum(self.out_data) / self.out_data.shape[0]
-        #     print(f"num = {num} mean = {mean}")
-        #     rss = 0
-        #     tss = 0
-        #     print(f"f({self.in_data[0]})= {self.weight * self.in_data[0] + self.intercept}")
-        #     for i in range(num):
-        #         prediction = self.weight * self.in_data[i] + self.intercept
-        #         rss += (self.out_data[i] - prediction) ** 2
-        #         tss += (self.out_data[i] - mean) ** 2
-
-        return 1 - rss / tss
-
     def compute_gradient(self):
         """
         Computes gradients for weight and intercept of the linear regression.
@@ -109,12 +79,6 @@ class LinearRegression:
         return grad_weight, grad_intercept
 
     def gradient_descent(self):
-        # print(
-        #     f"Initial weight: {self.weight: 0.5}, Initial intercept: {self.intercept: 0.5}"
-        # )
-        # cost = self.__mean_square_error__()
-        # print(f"Initial Cost in {self.i} iteration: {cost: 0.5}")
-        # print()
         while self.i < self.num_iters:
             gradient_weight, gradient_intercept = self.compute_gradient()
 
@@ -130,18 +94,8 @@ class LinearRegression:
                     self.intercept,
                 )
                 self.cost_history[self.i] = cost
-
-                # if self.i % (self.num_iters // 10) == 0:
-                #     print(
-                #         f"gradient_w {gradient_weight}, gradient_int {gradient_intercept}"
-                #     )
-                #     print(
-                #         f" weight: {self.weight: 0.5}, Initial intercept: {self.intercept: 0.5}"
-                #     )
-                #     print(f"Cost in {self.i} iteration: {cost: 0.5}")
-                #     print()
             self.i += 1
-        # print(f"final paramteres: weight: {self.weight}, intercept: {self.intercept}")
+
 
     def load_data(self, database, input_name, output_name):
         """
@@ -162,8 +116,6 @@ class LinearRegression:
             self.in_data, self.out_data, self.intercept
         )
 
-        # prec = self.precision()
-        # print(f"precision before learning: {prec}")
         self.gradient_descent()
 
         (
@@ -175,8 +127,6 @@ class LinearRegression:
             self.intercept, self.in_data, self.out_data, self.cost_history
         )
 
-        # prec = self.precision()
-        # print(f"precision after learning: {prec}")
         if self.debug:
             self.plot_cost()
 
